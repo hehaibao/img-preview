@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片预览插件 demo</title>
+    <style>
+        /* reset */
+        html,body{margin: 0;padding: 0;background-color: #f2f2f2;}
+        ul{list-style: none;padding: 0;}
+        img{max-width: 100%; height: auto; border: 0;}
+        .clearfix{zoom: 1;}
+        .clearfix:after{content: ""; display: block; font-size: 0; height: 0; clear: both; visibility: hidden;}
+        
+        /* wrapper */
+        #wrapper{width: 640px;margin: 0 auto;}
+        .title{font-size: 18px;margin: 15px 0;position: relative;padding-left: 10px;}
+        .title:before{content: '';width: 4px;height: 12px;display: block;background-color: #5995F1;position: absolute;top: 50%;left: 0;margin-top: -6px;}
+        .box{background-color: #fff;padding: 10px;}
+        .box li{width: 33.33%;float: left;text-align: center;}
+        .box li img{cursor: -webkit-zoom-in;cursor: zoom-in;}
+        .plugin-desc{margin-top: 20px;}
+
+        /* --- preview --- 必要样式【可自定义】*/
+        .img-preview-mask{width: 100%;height: 100%;position: fixed;top: 0;left: 0;z-index: 9998;background-color: rgba(0,0,0,.5);}
+        .img-preview-popover{position: fixed;z-index: 9999;}
+        .img-foot-title{font-size: 16px;color: #fff;margin-top: 5px;}
+        .img-foot-desc{font-size: 12px;color: #fff;margin-top: 5px;line-height: 24px;}
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <h2 class="title">单图预览</h2>
+        <div class="box">
+            <ul class="clearfix">
+                <li><img data-pic-title="图1" data-pic-desc="这是图1的描述" data-pic="http://pics.sc.chinaz.com/files/pic/pic9/201711/zzpic8129.jpg" src="http://pic1.sc.chinaz.com/Files/pic/pic9/201711/zzpic8129_s.jpg" alt=""></li>
+                <li><img data-pic-title="图2" data-pic="http://pics.sc.chinaz.com/files/pic/pic9/201709/zzpic7020.jpg" src="http://pic1.sc.chinaz.com/Files/pic/pic9/201709/zzpic7020_s.jpg" alt=""></li>
+                <li><img data-pic-title="图3" data-pic="http://pics.sc.chinaz.com/files/pic/pic9/201711/zzpic7852.jpg" src="http://pic1.sc.chinaz.com/Files/pic/pic9/201711/zzpic7852_s.jpg" alt=""></li>
+            </ul>
+        </div>
+        <div class="plugin-desc">
+            <h2 class="title">插件说明：</h2>
+            <pre>1. ES6语法，支持jQuery和Zepto；</pre>
+            <pre>2. 使用简单，只要在dom元素上加入data-pic原图地址即可；</pre>
+            <pre>3. 目前支持单图预览，后期有时间将会加入多图预览；</pre>
+            <pre>4. 支持自定义img标签上的字段[大图链接，大图标题，大图描述]；</pre>
+            <pre>5. 支持黑色浮层是否展示；</pre>
+        </div>
+    </div>
+    
+    <!-- js -->
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script> -->
+    <script src="js/imgPreview.min.js"></script>
+    <script>
+        $(() => $.imgPreview());
+    </script>
+</body>
+</html>
