@@ -21,25 +21,20 @@
             
             //核心业务 点击图片预览
             this.allDom().each((i ,item) => {
-                let _self = this;
+                const _self = this;
                 $(item).off('click').on('click', (event) => _self.preview(item));
             });
         }
         preview(item) {
-            let _self = this;
-            let $win = $(window);
-            let $body = $('body');
-            let screenW = $win.width();
-            let screenH = $win.height();
-            let $item = $(item);
+            const _self = this;
+            const [$win, $body, $item] = [$(window), $('body'), $(item)];
+            const [screenW, screenH] = [$win.width(), $win.height()];
+            
             // 获取缓存在自定义属性中的数据, 即：大图地址，标题，描述
-            let picUrl = $item.attr(_self.config.attr);
-            let picTitle = $item.attr(_self.config.attrTitle);
-            let picDesc = $item.attr(_self.config.attrDesc);
+            const [picUrl, picTitle, picDesc] = [$item.attr(_self.config.attr), $item.attr(_self.config.attrTitle), $item.attr(_self.config.attrDesc)];
             
             //设置窗口初始位置
-            let initY = event.clientY;
-            let initX = event.clientX;
+            const [initX, initY] = [event.clientX, event.clientY];
 
             //创建 预览遮罩
             _self.imgPreviewMask = $('<div class="img-preview-mask"></div>');
