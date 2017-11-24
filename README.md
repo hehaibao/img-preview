@@ -9,10 +9,10 @@
 3. 目前支持单图预览，后期有时间将会加入多图预览；
 4. 支持自定义img标签上的字段[大图链接，大图标题，大图描述]；
 5. 支持黑色浮层是否展示；
+6. 压缩后imgPreview.min.js仅2kb,未压缩文件是5kb;
 
-# 依赖：
--------
+依赖：
 
     imgPreview.js depends on the following libraries:
 
-* [jQuery](http://jquery.com/)
+* [jQuery](http://jquery.com/) or [Zepto](http://www.zeptojs.cn/)
