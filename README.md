@@ -1,8 +1,8 @@
-# jQuery/Zepto 图片预览插件
+## jQuery/Zepto 图片预览插件
 
 在线演示地址：https://hehaibao.github.io/img-preview/
 
-# 插件说明：
+### 插件说明：
 
 1. ES6语法，支持jQuery和Zepto；
 2. 使用简单，只要在dom元素上加入data-pic原图地址即可；
@@ -11,8 +11,6 @@
 5. 支持黑色浮层是否展示；
 6. 压缩后imgPreview.min.js仅2kb,未压缩文件是5kb;
 
-依赖：
-
-    imgPreview.js depends on the following libraries:
+--插件依赖：
 
 * [jQuery](http://jquery.com/) or [Zepto](http://www.zeptojs.cn/)
