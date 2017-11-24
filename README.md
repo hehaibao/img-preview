@@ -1,5 +1,6 @@
-# img-preview
-jQuery/Zepto 图片预览插件
+# jQuery/Zepto 图片预览插件
+
+在线演示地址：https://hehaibao.github.io/img-preview/
 
 # 插件说明：
 
@@ -8,3 +9,10 @@ jQuery/Zepto 图片预览插件
 3. 目前支持单图预览，后期有时间将会加入多图预览；
 4. 支持自定义img标签上的字段[大图链接，大图标题，大图描述]；
 5. 支持黑色浮层是否展示；
+
+# 依赖：
+-------
+
+    imgPreview.js depends on the following libraries:
+
+* [jQuery](http://jquery.com/)
