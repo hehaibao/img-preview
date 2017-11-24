@@ -55,8 +55,15 @@
                 //单图模式
                 let img = new Image();
                 let createPic = ((w, h) => {
-                    w = w >= screenW ? screenW - 40 : w;
-                    h = h >= screenH ? screenH - 40 : h; //防止图片超出屏幕宽高
+                    w = w >= screenW ? screenW : w;
+                    h = h >= screenH ? screenH : h; //防止图片超出屏幕宽高
+
+                    let styleArr = {
+                        width: w,
+                        height: h,
+                        top: (screenH - h) / 2,
+                        left: (screenW - w ) / 2
+                    }
 
                     _self.imgPreviewBox.append($(`<img src="${picUrl}"/>`))
                         .click(() => {
@@ -91,22 +98,10 @@
 
                     //执行动画 兼容zepto不支持animate
                     if($.fn && $.fn.jquery) {
-                        _self.imgPreviewPopover.css({
-                            width: w,
-                            height: h,
-                        }).animate({
-                            top: (screenH - h) / 2,
-                            left: (screenW - w ) / 2
-                        }, 300);
+                        _self.imgPreviewPopover.animate(styleArr, 300);
                     } else {
-                        _self.imgPreviewPopover.css({
-                            width: w,
-                            height: h,
-                            top: (screenH - h) / 2,
-                            left: (screenW - w ) / 2
-                        });
+                        _self.imgPreviewPopover.css(styleArr);
                     }
-                    
                 });
                 img.onload = (() => {
                     //图片下载完毕时异步调用callback函数
