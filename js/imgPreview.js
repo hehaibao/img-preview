@@ -55,14 +55,19 @@
                 //单图模式
                 let img = new Image();
                 let createPic = ((w, h) => {
+                    //防止图片超出屏幕宽高， 区分手机端还是PC端
+                    if(_self.isPc()) {
+                        h = parseInt((screenW * h) / w);
+                    } else {
+                        h = h >= screenH ? screenH : h;
+                    }
                     w = w >= screenW ? screenW : w;
-                    h = h >= screenH ? screenH : h; //防止图片超出屏幕宽高
 
                     let styleArr = {
                         width: w,
-                        height: h,
-                        top: (screenH - h) / 2,
-                        left: (screenW - w ) / 2
+                        height: _self.isPc() ? 'auto' : h,
+                        top: parseInt((screenH - h) / 2),
+                        left: parseInt((screenW - w ) / 2)
                     }
 
                     _self.imgPreviewBox.append($(`<img src="${picUrl}"/>`))
@@ -93,7 +98,10 @@
                     }
 
                     //添加内容
-                    _self.imgPreviewPopover.append(_self.imgPreviewBox).append(_self.imgPreviewFoot);
+                    _self.imgPreviewPopover.append(_self.imgPreviewBox);
+                    if(picTitle || picDesc) {
+                        _self.imgPreviewPopover.append(_self.imgPreviewFoot);
+                    }
                     $body.append(_self.imgPreviewPopover);
 
                     //执行动画 兼容zepto不支持animate
@@ -115,6 +123,10 @@
                 });
                 img.src = picUrl;
             }
+        }
+        isPc() {
+            //是否手机端
+            return /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent);
         }
         hide() {
             //关闭预览图
