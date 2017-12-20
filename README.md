@@ -39,7 +39,7 @@
 <script src="js/imgPreview.min.js"></script>
 ```
 
-4. 最后一步
+4. 最后一步 调用
 
 ```javascript
 <script>
@@ -48,6 +48,6 @@
 ```
 
 
---插件依赖：
+-- 插件依赖：
 
 * [jQuery](http://jquery.com/) or [Zepto](http://www.zeptojs.cn/)
