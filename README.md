@@ -9,9 +9,10 @@
 3. 目前支持单图预览，后期有时间将会加入多图预览；
 4. 支持自定义img标签上的字段[大图链接，大图标题，大图描述]；
 5. 支持黑色浮层是否展示；
-6. 压缩后imgPreview.min.js仅2kb,未压缩文件是6kb；
+6. 压缩后imgPreview.min.js仅3kb,未压缩文件是6kb；
 7. 支持移动端单张预览；
 8. 支持gulp压缩js；
+9. 新增自定义浮层背景色；
 
 ### 如何使用？
 
@@ -25,7 +26,7 @@
 
 ```css
 <style>
-.img-preview-mask{width: 100%;height: 100%;position: fixed;top: 0;left: 0;z-index: 9998;background-color: rgba(0,0,0,.5);}
+.img-preview-mask{width: 100%;height: 100%;position: fixed;top: 0;left: 0;z-index: 9998;}
 .img-preview-popover{position: fixed;z-index: 9999;}
 .img-preview-foot{width: 96%;padding:0 2%;position: absolute;bottom: 0;background-color: rgba(0,0,0,.5);}
 .img-foot-title{font-size: 16px;color: #fff;margin-top: 5px;}
@@ -44,6 +45,19 @@
 ```javascript
 <script>
    $(() => $.imgPreview());
+</script>
+
+或者自定义：
+<script>
+   $(() => $.imgPreview({
+       el: '[data-pic]', //需要预览的元素
+       attr: 'data-pic', //需要预览的原图地址
+       attrTitle: 'data-pic-title', //图片标题
+       attrDesc: 'data-pic-desc', //图片描述
+       mode: 'single', //预览模式，默认 - single: 单图模式; multiple: 多图模式（TODO）;
+       isMaskShow: true, //是否显示遮罩层
+       maskBgColor: 'rgba(255,255,255,.5)' //遮罩层背景色 默认黑色透明度50%
+   }));
 </script>
 ```
 
