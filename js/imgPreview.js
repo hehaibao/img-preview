@@ -16,7 +16,8 @@
                 attrTitle: 'data-pic-title', //图片标题
                 attrDesc: 'data-pic-desc', //图片描述
                 mode: 'single', //预览模式，默认 - single: 单图模式; multiple: 多图模式（TODO）;
-                isMaskShow: true //是否显示遮罩层
+                isMaskShow: true, //是否显示遮罩层
+                maskBgColor: 'rgba(0,0,0,.5)' //遮罩层背景色 默认黑色透明度50%
             }, options);
             
             //核心业务 点击图片预览
@@ -37,7 +38,7 @@
             const [initX, initY] = [event.clientX, event.clientY];
 
             //创建 预览遮罩
-            _self.imgPreviewMask = $('<div class="img-preview-mask"></div>');
+            _self.imgPreviewMask = $(`<div class="img-preview-mask" style="background-color: ${_self.config.maskBgColor || 'rgba(0,0,0,.5)'}"></div>`);
             //创建 弹出预览窗口
             _self.imgPreviewPopover = $(`<div class="img-preview-popover" style="top: ${initY}px;left: ${initX}px;"></div>`);
             //创建 弹出预览窗口 内容盒子
