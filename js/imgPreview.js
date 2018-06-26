@@ -6,10 +6,10 @@
  */
 ;(function(factory){
     if(typeof define === 'function' && define.amd) { // AMD
-        // you may need to change `define([------>'zepto'<------], factory)` 
-        // if you use jquery, change it rely name, such as `define(['jquery'], factory)`
-        define(['zepto'], factory)
-        // define(['jquery'], factory)
+        // you may need to change `define([------>'jquery'<------], factory)` 
+        // if you use zepto, change it rely name, such as `define(['zepto'], factory)`
+        define(['jquery'], factory)
+        // define(['zepto'], factory)
     } else { // Global
         factory(window.jQuery || window.Zepto)
     }
