@@ -1,8 +1,19 @@
 /**
  * @desc 图片预览插件
  * @author haibao[http://www.hehaibao.com/]
+ * github [https://github.com/hehaibao/img-preview]
+ * MIT
  */
-;($ => {
+;(function(factory){
+    if(typeof define === 'function' && define.amd) { // AMD
+        // you may need to change `define([------>'zepto'<------], factory)` 
+        // if you use jquery, change it rely name, such as `define(['jquery'], factory)`
+        define(['zepto'], factory)
+        // define(['jquery'], factory)
+    } else { // Global
+        factory(window.jQuery || window.Zepto)
+    }
+})(function($,undefined){
     $.imgPreview = options => new imgPreview(options);
     class imgPreview {
         constructor(options) {
@@ -134,4 +145,4 @@
             return $(this.config.el);
         }
     }
-})(window.Zepto || window.jQuery);
+});
