@@ -77,7 +77,7 @@
                         left: parseInt((screenW - w ) / 2)
                     }
 
-                    _self.imgPreviewBox.append($(`<img src="${picUrl}"/>`))
+                    _self.imgPreviewBox.append($(`<img style="cursor: zoom-out" src="${picUrl}"/>`))
                         .click(() => {
                             _self.hide();
                         });
