@@ -34,10 +34,10 @@
             //核心业务 点击图片预览
             this.allDom().each((i ,item) => {
                 const _self = this;
-                $(item).off('click').on('click', (event) => _self.preview(item));
+                $(item).off('click').on('click', (event) => _self.preview(item, event));
             });
         }
-        preview(item) {
+        preview(item, event) {
             const _self = this;
             const [$win, $body, $item] = [$(window), $('body'), $(item)];
             const [screenW, screenH] = [$win.width(), $win.height()];
