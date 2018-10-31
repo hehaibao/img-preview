@@ -38,6 +38,8 @@
             });
         }
         preview(item, event) {
+            event = event || window.event;
+            event.preventDefault();
             const _self = this;
             const [$win, $body, $item] = [$(window), $('body'), $(item)];
             const [screenW, screenH] = [$win.width(), $win.height()];
@@ -77,7 +79,7 @@
                         left: parseInt((screenW - w ) / 2)
                     }
 
-                    _self.imgPreviewBox.append($(`<img style="cursor: zoom-out" src="${picUrl}"/>`))
+                    _self.imgPreviewBox.append($(`<img width="100%" style="cursor: zoom-out" src="${picUrl}"/>`))
                         .click(() => {
                             _self.hide();
                         });
